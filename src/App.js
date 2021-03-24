@@ -1,10 +1,23 @@
-import './App.css';
+import "./App.css";
+
+import FirebaseProvider from "./context/firebaseContext";
+import CheckIfUserIsLoggedIn from "./components/userManagement";
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <FirebaseProvider>
+      <CheckIfUserIsLoggedIn />
+      <div className="App"></div>
+    </FirebaseProvider>
   );
 }
 
 export default App;
+
+// function FakeApp() {
+//   return (
+//     <div>
+//       <Route />
+//     </div>
+//   );
+// }

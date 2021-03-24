@@ -5,6 +5,17 @@ import "firebase/firestore";
 import "firebase/storage";
 import "firebase/analytics";
 
+/**
+ * useContext ->
+ * create context - React.createContext()
+ * create function contextProvider => <Context.Provider
+ * Wrap everywhere in contextProvider
+ *
+ *
+ * useContext
+ *
+ */
+
 //client credentials
 const firebaseConfig = {
   apiKey: "AIzaSyCSEHh9WZ_YC3INeQsG2Tqm5iv9YpiBMIA",
@@ -16,8 +27,12 @@ const firebaseConfig = {
   appId: "1:665630737781:web:6e699c3642fa1fbf343f3c",
 };
 
+//
+
+//creation
 export const FirebaseContext = createContext();
 
+//provider function
 export default function FirebaseProvider({ children }) {
   //whole app
   const [firebaseApp, setFirebaseApp] = useState();
@@ -55,7 +70,7 @@ export default function FirebaseProvider({ children }) {
         console.error(error);
       }
     });
-  }, []);
+  }, [firebaseApp]);
 
   return (
     <FirebaseContext.Provider
@@ -65,3 +80,5 @@ export default function FirebaseProvider({ children }) {
     </FirebaseContext.Provider>
   );
 }
+
+export const useFirebase = () => useContext(FirebaseContext);
