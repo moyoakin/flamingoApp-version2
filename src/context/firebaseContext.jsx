@@ -63,7 +63,7 @@ export default function FirebaseProvider({ children }) {
     setGoogleProvider(googleProvider);
    
 
-    firebase.auth().onAuthStateChanged(async (user) => {
+    const unSubscribeFromAuth = firebase.auth().onAuthStateChanged(async (user) => {
       try {
         if (user) {
           const { uid, displayName, email } = user;
@@ -76,6 +76,7 @@ export default function FirebaseProvider({ children }) {
         console.error(error);
       }
     });
+    return unSubscribeFromAuth;
   }, [firebaseApp]);
 
   return (

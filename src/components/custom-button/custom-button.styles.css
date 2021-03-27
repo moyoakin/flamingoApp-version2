@@ -19,3 +19,11 @@
     color: black;
     border: 1px solid black;
   }
+
+  .small-gap {
+      padding: 10px;
+  }
+
+  .custom-button.google-sign-in{
+      
+  }

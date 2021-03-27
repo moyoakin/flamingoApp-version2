@@ -50,14 +50,24 @@ const SignIn = () => {
           />
         </div>
 
+        <div className="buttons">
         <CustomButton type="submit" value="Submit">
-          Sign In
-        </CustomButton>
+        Sign In
+      </CustomButton>
 
-        <CustomButton onClick={() => auth.signInWithPopup(googleProvider)}>
-          Sign In With Google
-        </CustomButton>
+      <CustomButton onClick={() => auth.signInWithPopup(googleProvider)} isGoogleSignIn >
+        Sign In With Google
+      </CustomButton>
+        </div>
+
+        
       </form>
+      <div className="small-gap">
+
+      <input type="submit" onClick={() => auth.signOut()} value="Sign Out" />
+
+      
+      </div>
     </div>
   );
 };
