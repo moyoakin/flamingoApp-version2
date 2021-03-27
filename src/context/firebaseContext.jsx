@@ -43,6 +43,7 @@ export default function FirebaseProvider({ children }) {
   //load current user
   const [user, setUser] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
+  const [googleProvider, setGoogleProvider] = useState(null)
 
   useEffect(() => {
     //check if app is already running
@@ -56,6 +57,11 @@ export default function FirebaseProvider({ children }) {
     setFirebaseApp(firebase);
     setDb(firebase.firestore());
     setAuth(firebase.auth());
+
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    googleProvider.setCustomParameters({prompt:"select_account"});
+    setGoogleProvider(googleProvider);
+   
 
     firebase.auth().onAuthStateChanged(async (user) => {
       try {
@@ -74,7 +80,7 @@ export default function FirebaseProvider({ children }) {
 
   return (
     <FirebaseContext.Provider
-      value={{ firebaseApp, db, auth, user, setUser, loadingUser }}
+      value={{ firebaseApp, db, auth, user, setUser, loadingUser, googleProvider }}
     >
       {children}
     </FirebaseContext.Provider>
