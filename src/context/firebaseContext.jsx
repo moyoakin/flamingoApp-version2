@@ -18,15 +18,14 @@ import "firebase/analytics";
 
 //client credentials
 const firebaseConfig = {
-  apiKey: "AIzaSyCSEHh9WZ_YC3INeQsG2Tqm5iv9YpiBMIA",
-  authDomain: "asynclearning-e216e.firebaseapp.com",
-  databaseURL: "https://asynclearning-e216e.firebaseio.com",
-  projectId: "asynclearning-e216e",
-  storageBucket: "asynclearning-e216e.appspot.com",
-  messagingSenderId: "665630737781",
-  appId: "1:665630737781:web:6e699c3642fa1fbf343f3c",
+  apiKey: "AIzaSyCbJQEZIl2JPaqSw6mUgVvYY_lHR2Uxt-o",
+  authDomain: "asyncapp-7fca5.firebaseapp.com",
+  projectId: "asyncapp-7fca5",
+  storageBucket: "asyncapp-7fca5.appspot.com",
+  messagingSenderId: "73388957213",
+  appId: "1:73388957213:web:9025121b3f086243eaf0f4",
+  measurementId: "G-NEJG6STRNN"
 };
-
 //
 
 //creation
@@ -43,7 +42,7 @@ export default function FirebaseProvider({ children }) {
   //load current user
   const [user, setUser] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
-  const [googleProvider, setGoogleProvider] = useState(null)
+  const [googleProvider, setGoogleProvider] = useState(null);
 
   useEffect(() => {
     //check if app is already running
@@ -59,29 +58,64 @@ export default function FirebaseProvider({ children }) {
     setAuth(firebase.auth());
 
     const googleProvider = new firebase.auth.GoogleAuthProvider();
-    googleProvider.setCustomParameters({prompt:"select_account"});
+    googleProvider.setCustomParameters({ prompt: "select_account" });
     setGoogleProvider(googleProvider);
-   
 
-    const unSubscribeFromAuth = firebase.auth().onAuthStateChanged(async (user) => {
-      try {
-        if (user) {
-          const { uid, displayName, email } = user;
-          setUser({ uid, displayName, email });
-          setLoadingUser(true);
-        } else {
-          setUser(null);
+    const unSubscribeFromAuth = firebase
+      .auth()
+      .onAuthStateChanged(async (user) => {
+        try {
+          if (user) {
+            const { uid, displayName, email } = user;
+            setUser({ uid, displayName, email });
+            setLoadingUser(true);
+            createUserProfileDocument(user);
+          } else {
+            setUser(null);
+          }
+        } catch (error) {
+          console.error(error);
         }
-      } catch (error) {
-        console.error(error);
-      }
-    });
+      });
     return unSubscribeFromAuth;
   }, [firebaseApp]);
 
+  const createUserProfileDocument = async (userAuth, additionalData) => {
+    if (!userAuth) return;
+
+    const userRef = db.doc(`users/${userAuth.uid}`);
+    const snapShot = await userRef.get();
+
+    if (!snapShot.exists) {
+      const { displayName, email } = userAuth;
+      const createdAt = new Date();
+     additionalData = additionalData ? {displayName, ...additionalData} : {displayName}
+
+      try {
+        await userRef.set({
+          email,
+          createdAt,
+          ...additionalData,
+        });
+      } catch (error) {
+        console.log("Error creating USer", error.message);
+      }
+    }
+    return userRef;
+  };
+
   return (
     <FirebaseContext.Provider
-      value={{ firebaseApp, db, auth, user, setUser, loadingUser, googleProvider }}
+      value={{
+        firebaseApp,
+        db,
+        auth,
+        user,
+        setUser,
+        loadingUser,
+        googleProvider,
+        createUserProfileDocument
+      }}
     >
       {children}
     </FirebaseContext.Provider>
