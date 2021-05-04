@@ -23,7 +23,20 @@ const SignIn = ({ history }) => {
     event.preventDefault();
 
     try {
-      const { user } = await auth.signInWithEmailAndPassword(email, password);
+      const rawResponse = await fetch("https://flamingo-restapi-199004.herokuapp.com/api/users/login",{
+        method: "Post",
+        headers:{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          email:email,
+          password:password
+        })
+      });
+      const user = await rawResponse.json()
+      console.log(user)
       if (user !== null) {
         history.replace("/userhome");
       }
