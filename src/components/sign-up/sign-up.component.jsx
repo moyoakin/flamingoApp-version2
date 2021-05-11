@@ -32,8 +32,23 @@ const SignUp = () => {
             return;
         }
         try {
-            const {user } = await auth.createUserWithEmailAndPassword(email, password);
-            await createUserProfileDocument(user, {displayName})
+            const rawResponse = await fetch("https://flamingo-restapi-199004.herokuapp.com/api/users/signUp",{
+                method:"Post",
+                headers:{
+                    'Accept':'application/json',
+                    'Content Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    displayName:displayName,
+                    email:email,
+                    password:password,
+                    confirmPassword:confirmPassword
+                })
+            })
+
+            const user = await rawResponse.json();
+            console.log(user);
 
             setEmail('')
             setPassword('')

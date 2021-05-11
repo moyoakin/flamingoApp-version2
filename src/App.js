@@ -3,7 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import AuthenticatedHome from "./components/authenticated-home/authenticated.component";
 //import SignIn from './components/sign-in'
 
-import FirebaseProvider from "./context/firebaseContext";
+
+import RestApiProvider from "./context/restApiContext"
 //import CheckIfUserIsLoggedIn from "./components/userManagement";
 
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
@@ -13,7 +14,7 @@ import Footer from "./components/footer/footer.component";
 
 function App() {
   return (
-    <FirebaseProvider>
+    <RestApiProvider>
       <div>
         <Header />
         <Switch>
@@ -23,7 +24,7 @@ function App() {
         </Switch>
         <Footer twitter="twitter.svg" />
       </div>
-    </FirebaseProvider>
+    </RestApiProvider>
   );
 }
 

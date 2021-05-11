@@ -2,10 +2,10 @@ import React from "react";
 import Logo from "../logo/logo.component";
 import "./header.styles.css";
 import { Link } from "react-router-dom";
-import { useFirebase } from "../../context/firebaseContext";
+import { useRestApi } from "../../context/restApiContext";
 
 function Header() {
-  const { user, auth } = useFirebase();
+  const { user } = useRestApi();
 
   return (
     <div className="header-container">
@@ -24,8 +24,8 @@ function Header() {
         </Link>
 
         {user ? (
-          <Link to="/home" className="nav-menu" onClick={() => auth.signOut()}>
-            Sign Out <p>Welcome {user.displayName}</p>
+          <Link to="/home" className="nav-menu" >
+            Sign Out <p>Welcome {user.firstName}</p>
           </Link>
         ) : (
           <Link to="/login" className="nav-menu">
