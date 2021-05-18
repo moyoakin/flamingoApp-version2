@@ -1,0 +1,26 @@
+.contact-form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+   
+}
+
+.main-contact{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 30vw;
+    margin:30px auto;
+    box-sizing: border-box;
+   
+    
+}
+
+.text-box{
+    width:30vw;
+    margin:auto;
+    
+}
+

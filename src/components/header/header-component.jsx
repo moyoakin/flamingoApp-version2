@@ -15,16 +15,16 @@ function Header() {
           Home
         </Link>
 
-        <Link to="/login" className="nav-menu">
+        <Link to="/" className="nav-menu">
           Our Menu
         </Link>
 
-        <Link to="/" className="nav-menu">
+        <Link to="/contact" className="nav-menu">
           Contact
         </Link>
 
         {user ? (
-          <Link to="/home" className="nav-menu" >
+          <Link to="/home" className="nav-menu">
             Sign Out <p>Welcome {user.firstName}</p>
           </Link>
         ) : (

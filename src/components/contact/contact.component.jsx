@@ -1,58 +1,77 @@
-import React from 'react'
+import React from "react";
 
-import './contact.styles.css'
+import "./contact.styles.css";
 
-function Contact(){
+import FormInput from "../form-input/form-input.component";
+import CustomButton from "../custom-button/cutom-button.component";
 
-    return (
-        <div className="container">
-            <h1>Sign Up Today</h1>
-           
-            <!-- Form -->
-            <form className="form">
-                <!-- Full Name -->
-                <div lassName="form-group">
-                    <label for="name">Full Name</label>
-                   <input type="text" id="name" placeholder="Full Name" required minlength="3"  maxlength="100" name="name">
-                </div>
+function Contact() {
+  const [fullName, setFullName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [contactMessage, setContactMessage] = React.useState("");
 
-                <!-- Phone # -->
-                <div className="form-group">
-                        <label for="phone">Phone Number</label>
-                       <input type="tel" id="phone" placeholder="555-555-5555" required pattern="((1\s|\B)?\(?[0-9]{3}[-\s)]\s?[0-9]{3}[-\s][0-9]{4}|[0-9]{10})" name="phone">
-                    </div>
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    name === "fullName"
+      ? setFullName(value)
+      : name === "email"
+      ? setEmail(value)
+      : name === "contactMessage"
+      ? setContactMessage(value)
+      : setContactMessage(value);
+  };
 
-                     <!-- Email # -->
-                    <div class="form-group">
-                            <label for="Email">Email Address</label>
-                           <input type="email" id="email" placeholder="email@address.com" required name="email">
-                        </div>
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  };
 
-                        <!-- Website -->
-                    <div class="form-group">
-                            <label for="website">Website</label>
-                           <input type="url" id="website" placeholder="https://asynclearning.io" required minlength="3" maxlength="100" name="website">
-                        </div>
+  return (
+    <div>
+      <div className="contact-form">
+        <div className="main-contact">
+          <h2 className="title">We want to hear from you</h2>
 
-                        <!-- Password -->
-                    <div class="form-group">
-                            <label for="password1">Password</label>
-                           <input type="password" id="password1" placeholder="create password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Please enter an Uppercase a lowercase and a number" name="password">
-                        </div>
+          <form className="contact" onSubmit={handleSubmit}>
+            <FormInput
+              onChange={handleChange}
+              type="text"
+              name="fullName"
+              value={fullName}
+              label="Full Name"
+              required
+            ></FormInput>
 
-                           <!-- confirm Password -->
-                    <div class="form-group">
-                            <label for="password2"> Confirm Password</label>
-                           <input type="password" id="password2" placeholder="confirm password"required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
-                        </div>
+            <FormInput
+              onChange={handleChange}
+              type="text"
+              name="email"
+              value={email}
+              label="Email"
+              required
+            ></FormInput>
 
-                        <button type="submit"> Register </button>
-            </form>
-
-            <div class="message-container">
-                <h3 id="message">Don't Hesitate!</h3>
-            </div>
+            <FormInput
+              onChange={handleChange}
+              type="text"
+              name="phone"
+              value={contactMessage}
+              label="Phone"
+              required
+            ></FormInput>
+            <textarea
+              className="text-box"
+              placeholder="Message"
+              maxLength="500"
+              row="5"
+              cols="20"
+            ></textarea>
+            <CustomButton type="submit"> Send Now </CustomButton>
+          </form>
+        </div>
+      </div>
     </div>
-    )
-
+  );
 }
+
+export default Contact;

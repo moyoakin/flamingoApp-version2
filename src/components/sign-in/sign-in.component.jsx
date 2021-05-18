@@ -3,16 +3,13 @@ import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/cutom-button.component";
 //import AuthenticatedHome from "./components/authenticated.component"
 
-import { useFirebase } from "../../context/firebaseContext";
+import { useRestApi } from "../../context/restApiContext";
 
 import "./sign-in.styles.css";
 
 const SignIn = ({ history }) => {
-  const [displayName, setDisplayName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
-  const { auth, googleProvider } = useFirebase();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -23,27 +20,29 @@ const SignIn = ({ history }) => {
     event.preventDefault();
 
     try {
-      const rawResponse = await fetch("https://flamingo-restapi-199004.herokuapp.com/api/users/login",{
-        method: "Post",
-        headers:{
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
+      const rawResponse = await fetch(
+        "https://flamingo-restapi-199004.herokuapp.com/api/users/login",
+        {
+          method: "Post",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
 
-        body: JSON.stringify({
-          email:email,
-          password:password
-        })
-      });
-      const user = await rawResponse.json()
-      console.log(user)
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        }
+      );
+      const user = await rawResponse.json();
+      console.log(user);
       if (user !== null) {
         history.replace("/userhome");
       }
 
       setEmail("");
       setPassword("");
-      setDisplayName("");
     } catch (error) {
       console.log(error);
     }
@@ -81,17 +80,9 @@ const SignIn = ({ history }) => {
             Sign In
           </CustomButton>
 
-          <CustomButton
-            onClick={() => auth.signInWithPopup(googleProvider)}
-            isGoogleSignIn
-          >
-            Sign In With Google
-          </CustomButton>
+          <CustomButton isGoogleSignIn>Sign In With Google</CustomButton>
         </div>
       </form>
-      <div className="small-gap">
-        <input type="submit" onClick={() => auth.signOut()} value="Sign Out" />
-      </div>
     </div>
   );
 };

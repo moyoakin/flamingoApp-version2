@@ -10,6 +10,7 @@ import RestApiProvider from "./context/restApiContext"
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import Header from "./components/header/header-component";
 import UnAuthenticatedHome from "./pages/onauthenticatedhome/unauthenticatedhome.component";
+import Contact from "./components/contact/contact.component"
 import Footer from "./components/footer/footer.component";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/home" component={AuthenticatedHome} />
+          <Route path="/contact" component={Contact} />
           <Route path="/login" component={SignInAndSignUpPage} />
           <Route exact path="/" component={UnAuthenticatedHome} />
         </Switch>

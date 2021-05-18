@@ -2,7 +2,7 @@ import React from 'react'
 
 import './sign-up.styles.css'
 
-import { useFirebase} from '../../context/firebaseContext'
+import { useRestApi} from '../../context/restApiContext'
 
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/cutom-button.component'
@@ -10,18 +10,19 @@ import CustomButton from '../custom-button/cutom-button.component'
 
 const SignUp = () => {
 
-    const [displayName, setDisplayName] = React.useState("")
+    const [firstName, setFirstName] = React.useState("")
+    const [lastName, setLastName] = React.useState("")
     const [email, setEmail] = React.useState("")
     const [password, setPassword,] = React.useState("")
     const [confirmPassword, setConfirmPassword] = React.useState("")
 
 
-    const { auth, createUserProfileDocument } = useFirebase();
+   
 
     function handleChange(event){
 
         const {name, value} = event.target
-        name === 'displayName' ? setDisplayName(value) : name === "email" ? setEmail(value): name === 'password' ? setPassword(value): setConfirmPassword(value);
+        name === 'firstName' ? setFirstName(value) : name === "email" ? setEmail(value): name === 'password' ? setPassword(value): setConfirmPassword(value);
     }
 
     const handleSubmit = async (event) => {
@@ -40,7 +41,7 @@ const SignUp = () => {
                 },
 
                 body: JSON.stringify({
-                    displayName:displayName,
+                    firstName:firstName,
                     email:email,
                     password:password,
                     confirmPassword:confirmPassword
@@ -52,7 +53,7 @@ const SignUp = () => {
 
             setEmail('')
             setPassword('')
-            setDisplayName('')
+            setFirstName('')
             setConfirmPassword('')
         } catch (error) {
 
@@ -71,7 +72,7 @@ return(
                 onChange={handleChange}
                 type="text"
                 name="displayName"
-                value={displayName}
+                value={firstName}
                 label="Display Name"
                 required >
             </FormInput>
