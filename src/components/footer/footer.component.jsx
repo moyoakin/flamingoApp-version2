@@ -1,6 +1,8 @@
 import React from "react";
 
 import "./footer.styles.css";
+import CustomButton from "../custom-button/cutom-button.component";
+import Contact from "../contact/contact.component";
 
 import { Link } from "react-router-dom";
 
@@ -11,22 +13,27 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-row">
           <div className="footer-col">
-            <h4>Services</h4>
-            <ul>
-              <Link className="foot-menu">
-                <li>Branding</li>
-              </Link>
-              <Link className="foot-menu">
-                <li>Marketing</li>
-              </Link>
-              <Link className="foot-menu">
-                <li>Campaigns</li>
-              </Link>
+            <ul className="foot-menu">
+              <li>orders@grillsnchops.com</li>
+              <br></br>
+
+              <li>+1 778-239-1234</li>
+              <br></br>
+              <li>Campaigns</li>
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4>Socials</h4>
+            <p>
+              If you have any inquiries,
+              <br></br>
+              Please Contact us{" "}
+              <CustomButton type="contact">
+                <Link to="/contact" className="footer-button">
+                  <p className="button-text">Contact</p>
+                </Link>
+              </CustomButton>
+            </p>
             <ul>
               <Link className="foot-menu">
                 <li>Facebook</li>

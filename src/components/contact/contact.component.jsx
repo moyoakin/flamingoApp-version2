@@ -55,7 +55,7 @@ function Contact() {
               onChange={handleChange}
               type="text"
               name="phone"
-              value={contactMessage}
+              value={phone}
               label="Phone"
               required
             ></FormInput>
@@ -63,6 +63,7 @@ function Contact() {
               className="text-box"
               placeholder="Message"
               maxLength="500"
+              value={contactMessage}
               row="5"
               cols="20"
             ></textarea>
