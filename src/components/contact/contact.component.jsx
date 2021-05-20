@@ -27,7 +27,7 @@ function Contact() {
   };
 
   return (
-    <div>
+   
       <div className="contact-form">
         <div className="main-contact">
           <h2 className="title">We want to hear from you</h2>
@@ -64,14 +64,14 @@ function Contact() {
               placeholder="Message"
               maxLength="500"
               value={contactMessage}
-              row="5"
+              rows="5"
               cols="20"
             ></textarea>
             <CustomButton type="submit"> Send Now </CustomButton>
           </form>
         </div>
       </div>
-    </div>
+    
   );
 }
 
