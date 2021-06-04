@@ -27,51 +27,51 @@ function Contact() {
   };
 
   return (
-   
-      <div className="contact-form">
-        <div className="main-contact">
-          <h2 className="title">We want to hear from you</h2>
+    <div className="contact-form">
+      <div className="main-contact">
+        <h2 className="title">We want to hear from you</h2>
+        <hr className="title-underline"  />
+        <form className="contact" onSubmit={handleSubmit}>
+          <FormInput
+            onChange={handleChange}
+            type="text"
+            name="fullName"
+            value={fullName}
+            label="Full Name"
+            required
+          ></FormInput>
 
-          <form className="contact" onSubmit={handleSubmit}>
-            <FormInput
-              onChange={handleChange}
-              type="text"
-              name="fullName"
-              value={fullName}
-              label="Full Name"
-              required
-            ></FormInput>
+          <FormInput
+            onChange={handleChange}
+            type="text"
+            name="email"
+            value={email}
+            label="Email"
+            required
+          ></FormInput>
 
-            <FormInput
-              onChange={handleChange}
-              type="text"
-              name="email"
-              value={email}
-              label="Email"
-              required
-            ></FormInput>
-
-            <FormInput
-              onChange={handleChange}
-              type="text"
-              name="phone"
-              value={phone}
-              label="Phone"
-              required
-            ></FormInput>
-            <textarea
-              className="text-box"
-              placeholder="Message"
-              maxLength="500"
-              value={contactMessage}
-              rows="5"
-              cols="20"
-            ></textarea>
-            <CustomButton type="submit"> Send Now </CustomButton>
-          </form>
-        </div>
+          <FormInput
+            onChange={handleChange}
+            type="text"
+            name="phone"
+            value={phone}
+            label="Phone"
+            required
+          ></FormInput>
+          <textarea
+            className="text-box"
+            placeholder="Message"
+            maxLength="500"
+            value={contactMessage}
+            rows="5"
+            cols="20"
+          ></textarea>
+          <br />
+          <br />
+          <CustomButton type="submit"> Send Now </CustomButton>
+        </form>
       </div>
-    
+    </div>
   );
 }
 

@@ -3,14 +3,13 @@ import { Route, Switch } from "react-router-dom";
 import AuthenticatedHome from "./components/authenticated-home/authenticated.component";
 //import SignIn from './components/sign-in'
 
-
-import RestApiProvider from "./context/restApiContext"
+import RestApiProvider from "./context/restApiContext";
 //import CheckIfUserIsLoggedIn from "./components/userManagement";
 
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import Header from "./components/header/header-component";
 import UnAuthenticatedHome from "./pages/onauthenticatedhome/unauthenticatedhome.component";
-import Contact from "./components/contact/contact.component"
+import Contact from "./components/contact/contact.component";
 import Footer from "./components/footer/footer.component";
 
 function App() {

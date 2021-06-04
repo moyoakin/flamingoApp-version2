@@ -2,11 +2,13 @@
     display:flex;
     justify-content: space-between;
     background-size: contain;
+    background-color: #c2c2c2;
     padding: 10px 10px;
     font-family: "FiraGO", Sans-serif;
     font-weight: 300;
     font-size: 14px;
-    color: #121E48
+    color: #121E48;
+    
     
 }
 

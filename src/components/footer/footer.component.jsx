@@ -24,16 +24,20 @@ function Footer() {
           </div>
 
           <div className="footer-col">
-            <p>
-              If you have any inquiries,
-              <br></br>
-              Please Contact us{" "}
+            <div className="custom-paragraph">
+              <p>
+                If you have any inquiries,
+                <br></br>
+                <br></br>
+                Please Contact us{" "}
+              </p> <br></br>
               <CustomButton type="contact">
                 <Link to="/contact" className="footer-button">
-                  <p className="button-text">Contact</p>
+                  {" "}
+                  Contact
                 </Link>
               </CustomButton>
-            </p>
+            </div>
             <ul>
               <Link className="foot-menu">
                 <li>Facebook</li>

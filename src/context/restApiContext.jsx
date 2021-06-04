@@ -1,8 +1,8 @@
-import { useState, createContext, useContext  } from "react";
+import { useState, createContext, useContext } from "react";
 
 //Api Url
 
-const APIURL = "https://flamingo-restapi-199004.herokuapp.com/api/";
+const APIURL = "https://flamingo-restapi-199004.herokuapp.com/api";
 
 //Create context for the Api
 export const RestApiContext = createContext();
@@ -10,7 +10,7 @@ export const RestApiContext = createContext();
 export default function RestApiProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const login = async (email, password) => {
+  const login = async (emailAddress, password) => {
     try {
       const rawResponse = await fetch(`${APIURL}/users/login`, {
         method: "POST",
@@ -20,28 +20,32 @@ export default function RestApiProvider({ children }) {
         },
 
         body: JSON.stringify({
-          email: email,
+          email: emailAddress,
           password: password,
         }),
       });
       const returnedUser = await rawResponse.json();
+      console.log(returnedUser);
+      const { firstName, lastName, email, token } = returnedUser;
+      setUser({ firstName, lastName, email, token });
       console.log(user);
-      setUser(returnedUser);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 
-  return (
-      <RestApiContext.Provider value={{
-        user,
-        login
+  
 
-      }}>
-        {children}
-      
-      </RestApiContext.Provider>
-  )
+  return (
+    <RestApiContext.Provider
+      value={{
+        user,
+        login,
+      }}
+    >
+      {children}
+    </RestApiContext.Provider>
+  );
 }
 
-export const useRestApi = ()=> useContext(RestApiContext);
+export const useRestApi = () => useContext(RestApiContext);

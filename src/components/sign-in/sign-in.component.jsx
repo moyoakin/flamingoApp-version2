@@ -10,6 +10,7 @@ import "./sign-in.styles.css";
 const SignIn = ({ history }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const { user, login } = useRestApi();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -18,34 +19,15 @@ const SignIn = ({ history }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    login(email, password);
 
-    try {
-      const rawResponse = await fetch(
-        "https://flamingo-restapi-199004.herokuapp.com/api/users/login",
-        {
-          method: "Post",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-        }
-      );
-      const user = await rawResponse.json();
-      console.log(user);
-      if (user !== null) {
-        history.replace("/userhome");
-      }
-
-      setEmail("");
-      setPassword("");
-    } catch (error) {
-      console.log(error);
+    console.log(user);
+    if (user !== null) {
+      history.push("/");
     }
+
+    setEmail("");
+    setPassword("");
   };
 
   return (
