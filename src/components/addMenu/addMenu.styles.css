@@ -1,4 +1,4 @@
-.contact-form{
+.addmenu{
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
     background-color: #c2c2c2;
 }
 
-.main-contact{
+.addedmenu{
     display:flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -24,25 +24,3 @@
    
     
 }
-
-.text-box{
-    width:100%;
-    margin:auto;
-    
-}
-
-.title{
-    font-family: "Calibre","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
-    font-weight: 450;
-    font-size: 25px;
-   
-}
-
-.title-underline{
-    height: 0.5px; 
-    color: black ;
-    border-color:grey;
-    width:100%;
-}
-
-

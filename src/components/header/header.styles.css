@@ -17,6 +17,10 @@
     justify-content: flex-end;
     align-items: center;
     width: 50vw;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 500;
+    color: darkslateblue;
 }
 
 .nav-menu{
@@ -25,8 +29,9 @@
     
 }
 
-.nav-menu:hover{
-    text-decoration:underline;
+.all-items:hover ::after{
+    width: 100%;
+    
 }
 
 

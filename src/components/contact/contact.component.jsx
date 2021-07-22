@@ -17,10 +17,10 @@ function Contact() {
       ? setFullName(value)
       : name === "email"
       ? setEmail(value)
-      : name === "contactMessage"
-      ? setContactMessage(value)
-      : setContactMessage(value);
-  };
+      : name === "phone"
+      ? setPhone(value)
+      : setContactMessage(value)
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ function Contact() {
     <div className="contact-form">
       <div className="main-contact">
         <h2 className="title">We want to hear from you</h2>
-        <hr className="title-underline"  />
+        <hr className="title-underline" />
         <form className="contact" onSubmit={handleSubmit}>
           <FormInput
             onChange={handleChange}
@@ -59,6 +59,7 @@ function Contact() {
             required
           ></FormInput>
           <textarea
+            onChange={handleChange}
             className="text-box"
             placeholder="Message"
             maxLength="500"

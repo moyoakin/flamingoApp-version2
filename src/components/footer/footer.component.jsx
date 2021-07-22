@@ -2,7 +2,7 @@ import React from "react";
 
 import "./footer.styles.css";
 import CustomButton from "../custom-button/cutom-button.component";
-import Contact from "../contact/contact.component";
+
 
 import { Link } from "react-router-dom";
 

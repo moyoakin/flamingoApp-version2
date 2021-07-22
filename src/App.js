@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import AuthenticatedHome from "./components/authenticated-home/authenticated.component";
-//import SignIn from './components/sign-in'
+import dotenv from "dotenv";
 
 import RestApiProvider from "./context/restApiContext";
 //import CheckIfUserIsLoggedIn from "./components/userManagement";
@@ -11,8 +11,11 @@ import Header from "./components/header/header-component";
 import UnAuthenticatedHome from "./pages/onauthenticatedhome/unauthenticatedhome.component";
 import Contact from "./components/contact/contact.component";
 import Footer from "./components/footer/footer.component";
+import MenuList from "./pages/menuList/menuList-component";
+import MenuAdmin from "./pages/menu/menu.admin.component";
 
 function App() {
+  dotenv.config();
   return (
     <RestApiProvider>
       <div>
@@ -22,6 +25,8 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={SignInAndSignUpPage} />
           <Route exact path="/" component={UnAuthenticatedHome} />
+          <Route path="/menu" component={MenuList} />
+          <Route path="/managemenu" component={MenuAdmin} />
         </Switch>
         <Footer twitter="twitter.svg" />
       </div>

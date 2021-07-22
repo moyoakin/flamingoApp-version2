@@ -1,46 +1,43 @@
 import { useState, createContext, useContext } from "react";
-
-//Api Url
-
-const APIURL = "https://flamingo-restapi-199004.herokuapp.com/api";
+import { userLogin } from "./utils/user.utils";
+import { allMenuItems, deleteMenu, newMenu } from "./utils/menu.utils";
 
 //Create context for the Api
 export const RestApiContext = createContext();
 
 export default function RestApiProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [menuList, setMenuList] = useState([]);
 
-  const login = async (emailAddress, password) => {
-    try {
-      const rawResponse = await fetch(`${APIURL}/users/login`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+  async function login(emailAddress, password) {
+    const returnedUser = await userLogin(emailAddress, password);
+    const { firstName, lastName, email, token } = returnedUser;
+    setUser({ firstName, lastName, email, token });
+    console.log(user);
+  }
 
-        body: JSON.stringify({
-          email: emailAddress,
-          password: password,
-        }),
-      });
-      const returnedUser = await rawResponse.json();
-      console.log(returnedUser);
-      const { firstName, lastName, email, token } = returnedUser;
-      setUser({ firstName, lastName, email, token });
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
+  const allMenuList = async () => {
+    const menuResult = await allMenuItems();
+    setMenuList(menuResult);
+    return menuResult;
   };
 
-  
+  const addNewMenu = async (itemName, itemDescription, itemPrice) => {
+    const addedMenu = await newMenu(itemName, itemDescription, itemPrice);
+    return addedMenu;
+  };
 
   return (
     <RestApiContext.Provider
       value={{
         user,
         login,
+        allMenuList,
+        deleteMenu,
+        menuList,
+        newMenu,
+        addNewMenu,
+        setMenuList,
       }}
     >
       {children}

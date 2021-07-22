@@ -30,8 +30,10 @@ const SignIn = ({ history }) => {
     setPassword("");
   };
 
+ 
+
   return (
-    <div className="sign-in">
+    <div className="sign-in"  >
       <h2>I have already an account</h2>
       <span>Sign in with your email and password</span>
 
@@ -62,7 +64,7 @@ const SignIn = ({ history }) => {
             Sign In
           </CustomButton>
 
-          <CustomButton isGoogleSignIn>Sign In With Google</CustomButton>
+          <CustomButton isGoogleSignIn>Google Sign in</CustomButton>
         </div>
       </form>
     </div>

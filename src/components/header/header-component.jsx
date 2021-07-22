@@ -15,7 +15,7 @@ function Header() {
           Home
         </Link>
 
-        <Link to="/" className="nav-menu">
+        <Link to="menu" className="nav-menu">
           Our Menu
         </Link>
 
