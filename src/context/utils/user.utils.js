@@ -14,10 +14,9 @@ const userLogin = async (emailAddress, password) => {
       }),
     });
     const returnedUser = await rawResponse.json();
-    console.log(returnedUser);
     return returnedUser;
   } catch (error) {
-    console.log(error.message);
+    handleError(error);
   }
 };
 
@@ -40,7 +39,7 @@ const newUser = async (firstName, lastName, email, password) => {
   if (rawResponse.json === 201) {
     return rawResponse.json();
   } else {
-    return "User Cannot be created";
+    return handleError();
   }
 };
 
@@ -56,7 +55,7 @@ const deleteUser = async (id) => {
   if (rawResponse.status === 201) {
     return "User Deleted";
   } else {
-    return "Unable to delete User";
+    return handleError();
   }
 };
 
@@ -77,8 +76,12 @@ const getUserById = async (id)=>{
   if(apiResult === 201){
     return apiResult;
   }else{
-    return "User not found"
+    return handleError();
   }
+}
+
+function handleError(error) {
+  return { status: error.name, message: error.message, caughtError: true };
 }
 
 export { userLogin, newUser, deleteUser,getUserById  };

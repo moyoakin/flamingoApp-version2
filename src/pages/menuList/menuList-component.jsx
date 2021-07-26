@@ -3,27 +3,23 @@ import "./menuList.styles.css";
 
 import { useRestApi } from "../../context/restApiContext";
 
-
-
 function MenuList() {
-  const { allMenuList, menuList} = useRestApi();
-  let result = [];
+  const { allMenuList, menuList, err } = useRestApi();
 
   React.useEffect(() => {
     async function exec() {
-      result = await allMenuList();
-
-      console.log(" result from menuList", result);
+      await allMenuList();
     }
     exec();
-   return result;
   }, []);
 
   return (
     <div>
-      {menuList?.map((c) => (
-        <div> {c.itemName}</div>
-      ))}
+      {err ? (
+        <div>{err.message}</div>
+      ) : (
+        menuList?.map((c) => <div> {c.itemName}</div>)
+      )}
     </div>
   );
 }

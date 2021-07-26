@@ -1,22 +1,20 @@
 //const url = process.env.APIURL;
-const url = "http://localhost:8030/api"
-const allMenuItems = async () => {
+const url = "http://localhost:8030/api";
+const getAllMenuItems = async () => {
   try {
-    console.log(url);
-    console.log(process.env);
-    const allItem = await fetch(`${url}/menu/`, {
+    
+    const fetchMenuItems = await fetch(`${url}/menu/`, {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-      }
+      },
     });
 
-    const menuResult = await allItem.json();
-    console.log(menuResult);
-    return menuResult;
+    const apiResponse = await fetchMenuItems;
+    return apiResponse;
   } catch (error) {
-    console.log("Error");
+    return handleError(error);
   }
 };
 
@@ -32,7 +30,7 @@ const deleteMenu = async (id) => {
   if (apiResponse.status === 200) {
     return "Selected Menu Deleted";
   } else {
-    return "Menu not Found";
+    return handleError();
   }
 };
 
@@ -55,7 +53,7 @@ const newMenu = async (itemName, itemDescription, itemPrice, imageUrl) => {
   if (apiResponse.status === 201) {
     return apiResponse.json();
   } else {
-    return null;
+    return handleError();
   }
 };
 
@@ -74,8 +72,12 @@ const findById = async (id) => {
   if (searchResult.status === 201) {
     return searchResult;
   } else {
-    return "Menu not Found";
+    return handleError();
   }
 };
 
-export { allMenuItems, deleteMenu, newMenu, findById };
+function handleError(error) {
+  return { status: error.name, message: error.message, caughtError: true };
+}
+
+export { getAllMenuItems, deleteMenu, newMenu, findById };
