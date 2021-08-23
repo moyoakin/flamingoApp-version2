@@ -3,7 +3,6 @@ import React from "react";
 import "./footer.styles.css";
 import CustomButton from "../custom-button/cutom-button.component";
 
-
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -30,7 +29,8 @@ function Footer() {
                 <br></br>
                 <br></br>
                 Please Contact us{" "}
-              </p> <br></br>
+              </p>{" "}
+              <br></br>
               <CustomButton type="contact">
                 <Link to="/contact" className="footer-button">
                   {" "}
@@ -39,13 +39,13 @@ function Footer() {
               </CustomButton>
             </div>
             <ul>
-              <Link className="foot-menu">
+              <Link to="/" className="foot-menu">
                 <li>Facebook</li>
               </Link>
-              <Link className="foot-menu">
+              <Link to="/" className="foot-menu">
                 <li>Twitter</li>
               </Link>
-              <Link className="foot-menu">
+              <Link to="/" className="foot-menu">
                 <li>Instagram</li>
               </Link>
             </ul>

@@ -32,7 +32,7 @@ function Addmenu() {
     setDisplayResult(
       returnedMenu === null ? "Menu cannot be created" : "Menu created"
     );
-  });
+  }, []);
 
   return (
     <div className="addmenu">

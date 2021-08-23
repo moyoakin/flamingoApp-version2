@@ -1,5 +1,6 @@
 import React from "react";
 import "./menuList.styles.css";
+import MenuDisplay from "../../components/menuDisplay/menuDisplay.component";
 
 import { useRestApi } from "../../context/restApiContext";
 
@@ -15,11 +16,13 @@ function MenuList() {
 
   return (
     <div>
-      {err ? (
-        <div>{err.message}</div>
-      ) : (
-        menuList?.map((c) => <div> {c.itemName}</div>)
-      )}
+      <div className="main-menu">
+        {err ? (
+          <div>{err.message}</div>
+        ) : (
+          menuList?.map((c, index) => <MenuDisplay key={index} menu={c} />)
+        )}
+      </div>
     </div>
   );
 }

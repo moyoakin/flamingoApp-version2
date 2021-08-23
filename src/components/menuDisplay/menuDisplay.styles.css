@@ -1,0 +1,19 @@
+.menuDisplay{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c2c2c2;
+    width: 30vw;
+    box-sizing: border-box;
+   
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px rgb(0 0 0 / 6%) 0px 1px 2px 0px;
+    background-color: white;
+    
+    
+
+
+}
+
+

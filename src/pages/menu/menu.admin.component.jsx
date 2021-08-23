@@ -1,19 +1,20 @@
 import React from "react";
 
+import "./menu.admin.styles.css";
+
 import Addmenu from "../../components/addMenu/addMenu.component";
 import MenuList from "../menuList/menuList-component";
 
 function MenuAdmin() {
   return (
     <div>
-      <Addmenu />
-      <MenuList />
+      <div className="menu-admin">
+        <Addmenu />
+        <MenuList />
 
-      <hr />
-
-      
+        <hr />
+      </div>
     </div>
-
   );
 }
 

@@ -20,8 +20,10 @@ export default function RestApiProvider({ children }) {
   const allMenuList = async () => {
     resetErrorState();
     const response = await getAllMenuItems();
+
     if (response.status === 200) {
-      setMenuList(response.json());
+      const result = await response.json();
+      setMenuList(result);
     } else {
       setErrorState(response);
     }
@@ -38,7 +40,7 @@ export default function RestApiProvider({ children }) {
     setErr({ status, message });
   }
 
-  function resetErrorState(){
+  function resetErrorState() {
     setErr(null);
   }
 
@@ -53,7 +55,7 @@ export default function RestApiProvider({ children }) {
         newMenu,
         addNewMenu,
         setMenuList,
-        err
+        err,
       }}
     >
       {children}

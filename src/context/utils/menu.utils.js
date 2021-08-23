@@ -2,7 +2,6 @@
 const url = "http://localhost:8030/api";
 const getAllMenuItems = async () => {
   try {
-    
     const fetchMenuItems = await fetch(`${url}/menu/`, {
       method: "GET",
       headers: {
@@ -53,7 +52,7 @@ const newMenu = async (itemName, itemDescription, itemPrice, imageUrl) => {
   if (apiResponse.status === 201) {
     return apiResponse.json();
   } else {
-    return handleError();
+    console.log(Error);
   }
 };
 
@@ -72,7 +71,7 @@ const findById = async (id) => {
   if (searchResult.status === 201) {
     return searchResult;
   } else {
-    return handleError();
+    console.log(Error);
   }
 };
 
