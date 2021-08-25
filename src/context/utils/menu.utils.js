@@ -48,6 +48,7 @@ const newMenu = async (itemName, itemDescription, itemPrice, imageUrl) => {
       imageUrl,
     }),
   });
+  console.log("Api Response:", apiResponse);
 
   if (apiResponse.status === 201) {
     return apiResponse.json();

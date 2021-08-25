@@ -1,7 +1,7 @@
 import React from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/cutom-button.component";
-//import AuthenticatedHome from "./components/authenticated.component"
+import AuthenticatedHome from "../authenticated-home/authenticated.component.jsx";
 
 import { useRestApi } from "../../context/restApiContext";
 
@@ -23,17 +23,15 @@ const SignIn = ({ history }) => {
 
     console.log(user);
     if (user !== null) {
-      history.push("/");
+      history.push("/home");
     }
 
     setEmail("");
     setPassword("");
   };
 
- 
-
   return (
-    <div className="sign-in"  >
+    <div className="sign-in">
       <h2>I have already an account</h2>
       <span>Sign in with your email and password</span>
 

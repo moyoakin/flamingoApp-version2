@@ -28,6 +28,7 @@ function Addmenu() {
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
     const returnedMenu = await addNewMenu(itemName, itemDescription, itemPrice);
+    console.log(returnedMenu);
 
     setDisplayResult(
       returnedMenu === null ? "Menu cannot be created" : "Menu created"
