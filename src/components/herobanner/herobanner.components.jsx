@@ -1,8 +1,8 @@
 import React from "react";
-
 import "./herobanner.styles.css";
+import { Link } from "react-router-dom";
 
-function HeroBanner({ imageUrl, text}) {
+function HeroBanner({ imageUrl, text }) {
   return (
     <div className="hero-container">
       <div className="control-center">
@@ -11,8 +11,15 @@ function HeroBanner({ imageUrl, text}) {
           style={{ backgroundImage: `url(${imageUrl})` }}
         ></div>
 
-        <div>
-          <h2 className="text-on-page">{text}</h2>
+        <div className="text-box">
+          <h2 className="content"> Coming Soon </h2>
+
+          <div className="buttons">
+          <Link className="browse">Menu</Link>
+          <Link className="browse">Tell us</Link>
+          </div>
+         
+
         </div>
       </div>
     </div>

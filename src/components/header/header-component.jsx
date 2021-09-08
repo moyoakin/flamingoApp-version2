@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <div className="header-container">
-      <Logo width="120" height="120" logoType="png" imageUrl="grillslogo.png" />
+      <Logo width="78" height="78" logoType="png" imageUrl="grillslogo.png" />
       <div className="all-items">
         <Link to="/" className="nav-menu">
           Home
@@ -28,7 +28,7 @@ function Header() {
             Sign Out <p>Welcome {user.firstName}</p>
           </Link>
         ) : (
-          <Link to="/login" className="nav-menu">
+          <Link id="sign_in" className="link_button nav-menu" to="/login">
             Sign In
           </Link>
         )}
