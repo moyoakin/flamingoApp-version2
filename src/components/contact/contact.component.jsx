@@ -19,8 +19,8 @@ function Contact() {
       ? setEmail(value)
       : name === "phone"
       ? setPhone(value)
-      : setContactMessage(value)
-  }
+      : setContactMessage(value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();

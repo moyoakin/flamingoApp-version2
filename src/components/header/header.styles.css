@@ -2,8 +2,8 @@
     display:flex;
     justify-content: space-between;
     background-size: contain;
-    background-color: rgb(247, 250, 252);
-    padding: 10px 10px;  
+    background-color: #f0f5fb;
+    padding: 10px 10px;
 }
 
 .all-items{
@@ -49,6 +49,7 @@ a:hover{
 
 #sign_in{
     color: rgba(255,255,255,0.92);
+    padding:7px 10px;
 }
 
 

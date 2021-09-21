@@ -2,6 +2,7 @@ import React from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/cutom-button.component";
 import AuthenticatedHome from "../authenticated-home/authenticated.component.jsx";
+import { Link } from "react-router-dom";
 
 import { useRestApi } from "../../context/restApiContext";
 
@@ -32,9 +33,8 @@ const SignIn = ({ history }) => {
 
   return (
     <div className="sign-in">
-      <h2>I have already an account</h2>
-      <span>Sign in with your email and password</span>
-
+      <h2>Sign in to your account</h2>
+      <span>Don't have an account </span> <Link> Create an account </Link>
       <form onSubmit={handleSubmit}>
         <div>
           <FormInput

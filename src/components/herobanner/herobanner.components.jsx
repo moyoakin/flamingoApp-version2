@@ -2,7 +2,7 @@ import React from "react";
 import "./herobanner.styles.css";
 import { Link } from "react-router-dom";
 
-function HeroBanner({ imageUrl, text }) {
+function HeroBanner({ imageUrl }) {
   return (
     <div className="hero-container">
       <div className="control-center">
@@ -16,12 +16,18 @@ function HeroBanner({ imageUrl, text }) {
             </p>
 
             <div className="buttons">
-              <Link id="browse-aux" className="browse">Menu</Link>
-              <Link id="tell-aux" className="tell">Tell us</Link>
+              <Link to="/menu" id="browse-aux" className="browse">
+                Menu
+              </Link>
+              <Link id="tell-aux" className="tell">
+                Tell us
+              </Link>
             </div>
             <div className="navigation-text">
-            <pre className="the-pre">Already have an account?</pre>
-            <Link to="/login" className="hero-sign">Sign in</Link>
+              <pre className="the-pre">Already have an account?</pre>
+              <Link to="/login" className="hero-sign">
+                Sign in
+              </Link>
             </div>
           </div>
         </div>

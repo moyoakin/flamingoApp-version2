@@ -7,7 +7,7 @@
     background-repeat: no-repeat;
     justify-content: center;
     background-color: rgb(247, 250, 252);
-    border:rgba(34, 32, 32, 0.92) solid 1px;
+    
     
     
 }
@@ -24,10 +24,11 @@
 .front-page-image{
     width:40vw;
     height:60vh;
+    margin-top: 150px;
     background-size: cover;
     background-repeat: no-repeat;
     border: black solid 1px;
-    box-shadow: -15px 0px 10px 1px #aaaaaa;
+    box-shadow: -15px -15px 0px 0px #aaaaaa;
 
 }
 
@@ -37,7 +38,7 @@
    border: rgb(226, 232, 240) solid 0px;
     width: 40vw;
    border-radius: 5px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: rgb(22, 22, 21);
 }
 
@@ -53,6 +54,7 @@
     margin-top: 20px;
     text-decoration-color: rgba(255,255,255, 0.92);
     justify-content: flex-start;
+    margin-left: -21px;
 }
 
 .browse{
@@ -124,12 +126,12 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size:60px;
     font-weight: 800px;
-    margin: 0;
     letter-spacing: -1.5px;
     line-height: 60px;
     color: rgb(43, 108, 176);
     margin-block: 0px 16px;
     margin:0px;
+    margin-left: -9px;
     
    
 }
@@ -166,9 +168,18 @@
  }
 
  .hero-sign{
-     margin-top: 10px;
-     color: rgba(44, 42, 42, 0.92);
+     margin-top: 12px;
+     color:rgb(74, 85, 104);
      word-spacing: 5px;
      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
      line-height: 24px;
+    font-size: 13px;
+    font-weight: 400;
+ }
+
+ .the-pre{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color:rgb(74, 85, 104);
  }

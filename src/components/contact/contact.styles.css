@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #c2c2c2;
+    background-color: rgb(238, 247, 253);
 }
 
 .main-contact{
@@ -17,9 +17,10 @@
     border-radius: 5px;
     border: whitesmoke solid 2px;
     box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px rgb(0 0 0 / 6%) 0px 1px 2px 0px;
-    background-color: white;
-    font-family: "Calibre","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
-    font-weight: 350;
+    background-color: rgb(242, 245, 247);
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    color:rgb(74, 85, 104);
     font-size: 10px;
    
     

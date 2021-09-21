@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <div className="header-container">
-      <Logo width="78" height="78" logoType="png" imageUrl="grillslogo.png" />
+      <Logo width="45" height="45" logoType="png" imageUrl="grillslogo.png" />
       <div className="all-items">
         <Link to="/" className="nav-menu">
           Home
