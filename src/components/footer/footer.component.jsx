@@ -55,6 +55,30 @@ function Footer() {
       <div className="foot-info3">
         <h4>Follow Us</h4>
       </div>
+
+      <div className="subcription-sec">
+        <div className="sub-elements">
+          <h4 className="sub-header">Subscribe to Our Newsletter</h4>
+          <p className="sub-para">
+            Get notified when we have our annual and monthly food tasting events
+            and other specials
+          </p>
+
+          <br />
+          <div className="subcribe">
+            <form className="sub-form">
+              <input
+                className="sub-input"
+                type="email"
+                placeholder="Your email"
+              ></input>
+              <button className="sub-button" type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

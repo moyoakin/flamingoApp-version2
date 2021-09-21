@@ -16,8 +16,11 @@ function FeatureSection({ image }) {
               A glimpse of our luxirious dinning room
             </h1>
             <h3 className="bold-sec">We have the perfect Ambience</h3>
-            <pre>
-              Have a quick look at out luxirious <Link to="/menu">Menu</Link>
+            <pre className="section-pre">
+              Have a quick look at our luxirious{" "}
+              <Link to="/menu" className="section-pre-link">
+                Menu
+              </Link>
             </pre>
           </div>
         </div>
