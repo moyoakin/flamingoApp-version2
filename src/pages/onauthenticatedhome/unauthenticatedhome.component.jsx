@@ -8,7 +8,7 @@ function UnAuthenticatedHome() {
   return (
     <div>
       <HeroBanner imageUrl="frontimage2.jpg" />
-      <FeatureSection image="section-image.jpg" />
+      <FeatureSection image1="patio1.jpeg" image2="umbrellaevent.jpeg" />
     </div>
   );
 }

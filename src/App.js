@@ -6,7 +6,8 @@ import dotenv from "dotenv";
 import RestApiProvider from "./context/restApiContext";
 //import CheckIfUserIsLoggedIn from "./components/userManagement";
 
-import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import SignInPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import SignUpPage from "./pages/sign-up-page/sign-up.component";
 import Header from "./components/header/header-component";
 import UnAuthenticatedHome from "./pages/onauthenticatedhome/unauthenticatedhome.component";
 import Contact from "./components/contact/contact.component";
@@ -23,7 +24,8 @@ function App() {
         <Switch>
           <Route path="/home" component={AuthenticatedHome} />
           <Route path="/contact" component={Contact} />
-          <Route path="/login" component={SignInAndSignUpPage} />
+          <Route path="/login" component={SignInPage} />
+          <Route path="/signup" component={SignUpPage} />
           <Route exact path="/" component={UnAuthenticatedHome} />
           <Route path="/menu" component={MenuList} />
           <Route path="/managemenu" component={MenuAdmin} />

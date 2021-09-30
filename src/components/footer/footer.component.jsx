@@ -23,32 +23,31 @@ function Footer() {
       <div className="foot-info1">
         <h4 className="head-line">Company</h4>
         <ul>
-          <Link className="foot-menu">
-            <li>About US</li>
-          </Link>
-          <Link className="foot-menu">
-            <li>Our Services</li>
-          </Link>
-          <Link className="foot-menu">
-            <li>Privacy Policy</li>
-          </Link>
+          <li className="footer-li">
+            <Link className="foot-menu">About US</Link>
+          </li>
+
+          <li className="footer-li">
+            <Link className="foot-menu">Our Services</Link>
+          </li>
+          <li className="footer-li">
+            <Link className="foot-menu">Privacy Policy</Link>
+          </li>
         </ul>
       </div>
 
       <div className="foot-info2">
         <h4 className="head-line1">Get Help</h4>
         <ul>
-          <Link className="foot-menu">
-            {" "}
-            <li>FAQ</li>{" "}
-          </Link>
-          <Link className="foot-menu">
-            {" "}
-            <li>Order Status</li>{" "}
-          </Link>
-          <Link className="foot-menu">
-            <li>Payment Options</li>{" "}
-          </Link>
+          <li className="footer-li">
+            <Link className="foot-menu">FAQ</Link>
+          </li>
+          <li className="footer-li">
+            <Link className="foot-menu">Order Status</Link>
+          </li>
+          <li className="footer-li">
+            <Link className="foot-menu">Payment Options</Link>
+          </li>
         </ul>
       </div>
 
@@ -61,7 +60,7 @@ function Footer() {
           <h4 className="sub-header">Subscribe to Our Newsletter</h4>
           <p className="sub-para">
             Get notified when we have our annual and monthly food tasting events
-            and other specials
+            and other specials.
           </p>
 
           <br />

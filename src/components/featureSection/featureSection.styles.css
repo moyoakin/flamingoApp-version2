@@ -4,92 +4,109 @@
     background-size: auto;
     background-repeat: no-repeat;
     justify-content: center;
-    background-color: rgb(238, 247, 253);
-    
-    
-    
+    background-color: rgb(238, 247, 253);   
 }
 
 .feature-control{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.feature1{
+    display: flex;
+    flex-direction: column;
+}
+
+.first-feature-image{
+    
+    box-sizing: border-box;
+    border: white solid 0px;
+    width: 30vw;
+    height: 30vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left:15px;
+}
+
+.feature2{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.second-feature-text{
+    
+    box-sizing: border-box;
+    border: white solid 0px;
+    width: 25vw;
+    height: 30vh;
+    margin-top:15px;
+    margin-left: 15px;
+
+}
+
+
+
+.first-feature-text{
+    box-sizing: border-box;
+    border: white solid 0px;
+    width: 30vw;
+    height: 30vh;
+    margin-left:15px;
+}
+
+.second-feature-image{
+    box-sizing: border-box;
+    border: white solid 0px;
+    width: 30vw;
+    height: 35vh;
+    margin-left: 15px;
+}
+
+.feature-para{
+    display: block;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   color: rgb(74,85,104);
+   font-size: 16px;
+   font-weight: 400;
+   text-align: left;
+   margin-bottom: 18px;
+}
+
+.feature-head1{
+    display: block;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(43,108,176);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.1px;
+    line-height: 27px;
+    font-stretch: 100%;
+    margin:0px;
+
+
+}
+
+.reserve-button{
     display:flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 5vw;
-           
-}
-
-.feature-text{
-    display:flex;
-    flex-direction: column;
-    border: rgb(226, 232, 240) solid 0px;
-     width: 40vw;
-    border-radius: 5px;
-     font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-     color: rgb(22, 22, 21);
- }
-
- .feature-head{
-    display:block;
-    text-align: left;
+    padding:10px 15px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: rgb(43,108,176);
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 0.4px;
-    line-height: 24px;
-    box-sizing: border-box;
-    border: rgb(226, 232, 240) solid 0px;
-    margin:0px;
-    margin-top:32px;
-    
-}
-
-.feature-elements{
-    display: flex;
-    width: 80%;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.bold-sec{
-    box-sizing: border-box;
-    padding:5px;
-    display:block;
-    text-align:left;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size:60px;
-    font-weight: 800px;
-    letter-spacing: -1.5px;
-    line-height: 60px;
-    color: rgb(43, 108, 176);
-    margin-block: 0px 16px;
-    margin:0px;
-    margin-left: -6px;
+    color: rgba(255,255,255, 0.92);
+    margin-top: 20px;
+    text-decoration-color: rgba(255,255,255, 0.92);
+    justify-content: flex-start;
+    margin-left: -21px;
 }
 
 
-.feature-image{
-    width:40vw;
-    height:50vh;
-    margin-top: 80px;
-    background-size:cover;
-    background-repeat: no-repeat;
-    border: black white 1px;
-    
-}
 
-.section-pre-link{
-    
-    color:rgb(74, 85, 104);
 
-}
 
-.section-pre{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color:rgb(74, 85, 104);
-
-}

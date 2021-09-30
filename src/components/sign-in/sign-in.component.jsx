@@ -33,8 +33,11 @@ const SignIn = ({ history }) => {
 
   return (
     <div className="sign-in">
-      <h2>Sign in to your account</h2>
-      <span>Don't have an account </span> <Link> Create an account </Link>
+      <div className="auth-head-text">
+        <h2>Sign in to your account</h2>
+        <span className="auth-nav-text">Don't have an account <Link className="sign-up-link" to="signup"> Create an account </Link> </span>
+        
+      </div>
       <form onSubmit={handleSubmit}>
         <div>
           <FormInput
